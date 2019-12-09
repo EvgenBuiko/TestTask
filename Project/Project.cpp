@@ -24,6 +24,9 @@ BEGIN_MESSAGE_MAP(CProjectApp, CWinApp)
 	ON_COMMAND(ID_ELLIPSE, &CProjectApp::CreateEllipse)
 	ON_COMMAND(ID_MOVE, &CProjectApp::MoveObject)
 	ON_COMMAND(ID_CONNECT, &CProjectApp::CreateConnection)
+	ON_COMMAND(ID_OPEN_FILE, &CProjectApp::OpenFile)
+	ON_COMMAND(ID_SAVE_FILE, &CProjectApp::SaveFile)
+	ON_COMMAND(ID_CLOSE_FILE, &CProjectApp::CloseFile)
 END_MESSAGE_MAP()
 
 
@@ -46,6 +49,7 @@ CProjectApp::CProjectApp() noexcept
 
 	// TODO: добавьте код создания,
 	// Размещает весь важный код инициализации в InitInstance
+	obj_pathname = CString("null");
 }
 
 // Единственный объект CProjectApp
@@ -183,9 +187,35 @@ void CProjectApp::CreateConnection()
 	buf_obj_type = ID_Line; 
 	move_tool.SetActive(false);
 }
+void CProjectApp::OpenFile()
+{
+	CFileDialog dlg(true, (LPCTSTR)L"txt", NULL, OFN_READONLY, (LPCTSTR)L" Text Files (*.txt) |*.txt||");
+	if (dlg.DoModal() == IDOK)
+	{
+		obj_pathname = dlg.GetPathName();
+		on_open_file(obj_pathname);
+	}
+}
+void CProjectApp::SaveFile()
+{
+	if (obj_pathname.Compare(L"null") == 0)
+	{
+		CFileDialog dlg(false, (LPCTSTR)L"txt", NULL, OFN_READONLY | OFN_OVERWRITEPROMPT, (LPCTSTR)L" Text Files (*.txt) |*.txt||");
+		if (dlg.DoModal() == IDOK)
+		{
+			obj_pathname = dlg.GetPathName();
+			on_save_file(obj_pathname);
+		}
+	}
+	else on_save_file(obj_pathname);
+}
+void CProjectApp::CloseFile()
+{
+	if (obj_pathname.Compare(L"null") != 0)
+		on_close_file();
+}
 void CProjectApp::MoveObject() 
 { 
 	move_tool.SetActive(true);
 	buf_obj_type = -1;
 }
-

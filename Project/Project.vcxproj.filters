@@ -31,6 +31,9 @@
     <Filter Include="Файлы заголовков\MFC">
       <UniqueIdentifier>{2cdcfa87-8bb5-40f2-b1ba-3e08990b6d47}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Файлы заголовков\EventListener">
+      <UniqueIdentifier>{9182c9bb-7f70-42e1-b2ae-b814f245fd6c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -78,6 +81,18 @@
     <ClInclude Include="Resource.h">
       <Filter>Файлы заголовков\MFC</Filter>
     </ClInclude>
+    <ClInclude Include="IEventHandler.h">
+      <Filter>Файлы заголовков\EventListener</Filter>
+    </ClInclude>
+    <ClInclude Include="MethodEventHandler.h">
+      <Filter>Файлы заголовков\EventListener</Filter>
+    </ClInclude>
+    <ClInclude Include="PEvent.h">
+      <Filter>Файлы заголовков\EventListener</Filter>
+    </ClInclude>
+    <ClInclude Include="PObjStream.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -117,6 +132,9 @@
       <Filter>Исходные файлы\Tools</Filter>
     </ClCompile>
     <ClCompile Include="PMover.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="PObjStream.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
   </ItemGroup>

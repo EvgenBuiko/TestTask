@@ -9,7 +9,7 @@
 
 #include "resource.h"       // основные символы
 #include "PMover.h"
-
+#include "PEvent.h"
 // CProjectApp:
 // Сведения о реализации этого класса: Project.cpp
 //
@@ -20,7 +20,10 @@ public:
 	CProjectApp() noexcept;
 	int buf_obj_type;
 	PMover move_tool;
-
+	CString obj_pathname;
+	PEvent<CString> on_open_file;
+	PEvent<CString> on_save_file;
+	PEvent<> on_close_file;
 // Переопределение
 public:
 	virtual BOOL InitInstance();
@@ -32,6 +35,9 @@ public:
 	afx_msg void CreateEllipse();
 	afx_msg void MoveObject();
 	afx_msg void CreateConnection();
+	afx_msg void OpenFile();
+	afx_msg void SaveFile();
+	afx_msg void CloseFile();
 	DECLARE_MESSAGE_MAP()
 };
 

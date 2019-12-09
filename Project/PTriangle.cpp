@@ -2,8 +2,7 @@
 #include "PTriangle.h"
 
 
-PTriangle::PTriangle(CPoint lt, CPoint rb) : PObject(lt, rb)
-{}
+PTriangle::PTriangle(CPoint lt, CPoint rb) : PObject(lt, rb) { type = ID_Triangle; }
 
 void PTriangle::OnDraw(CDC* pDC)
 {
@@ -12,6 +11,4 @@ void PTriangle::OnDraw(CDC* pDC)
 	pDC->Polygon(points, 3);
 }
 
-PTriangle::~PTriangle()
-{
-}
+PTriangle::~PTriangle() {}

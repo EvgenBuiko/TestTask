@@ -183,12 +183,16 @@
     </ResourceCompile>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="IEventHandler.h" />
+    <ClInclude Include="MethodEventHandler.h" />
     <ClInclude Include="PConnecter.h" />
+    <ClInclude Include="PEvent.h" />
     <ClInclude Include="PLine.h" />
     <ClInclude Include="PEllipse.h" />
     <ClInclude Include="MainFrm.h" />
     <ClInclude Include="PMover.h" />
     <ClInclude Include="PObject.h" />
+    <ClInclude Include="PObjStream.h" />
     <ClInclude Include="Project.h" />
     <ClInclude Include="ProjectDoc.h" />
     <ClInclude Include="ProjectView.h" />
@@ -206,6 +210,7 @@
     <ClCompile Include="MainFrm.cpp" />
     <ClCompile Include="PMover.cpp" />
     <ClCompile Include="PObject.cpp" />
+    <ClCompile Include="PObjStream.cpp" />
     <ClCompile Include="Project.cpp" />
     <ClCompile Include="ProjectDoc.cpp" />
     <ClCompile Include="ProjectView.cpp" />

@@ -6,12 +6,11 @@
 #include <vector>
 #include "PObject.h"
 #include "PToolComponent.h"
+#include <memory>
 
 class CProjectView : public CView
 {
-private:
-	PObject* Find(CPoint loc);
-
+	
 protected: // создать только из сериализации
 	CProjectView() noexcept;
 	DECLARE_DYNCREATE(CProjectView)
@@ -19,7 +18,6 @@ protected: // создать только из сериализации
 // Атрибуты
 public:
 	CProjectDoc* GetDocument() const;
-	
 	std::vector<PObject*> Objects;
 	std::vector<PToolComponent*> Tools;
 	PToolComponent* curr_tool;
@@ -41,10 +39,14 @@ public:
 	virtual void AssertValid() const;
 	virtual void Dump(CDumpContext& dc) const;
 #endif
+	static PObject* Find(CPoint loc, std::vector<PObject*>& objs);
 	afx_msg void OnLButtonDown(UINT Flags, CPoint Location);
 	afx_msg void OnLButtonUp(UINT Flags, CPoint Location);
 	afx_msg void OnMouseMove(UINT Flags, CPoint Location);
-
+	afx_msg void OpenFile(CString pathname);
+	afx_msg void SaveFile(CString pathname);
+	afx_msg void CloseFile();
+	
 protected:
 
 // Созданные функции схемы сообщений
