@@ -27,4 +27,5 @@ Format of this files similar with object file
 
 Starts with **o** define symbol. Contains LeftTop and RightBottom points of object
 > `o` LeftTop(x, y) RightBottom(x, y)
-> `o 	x y		x y`  
+
+> `o x y x y`  
